@@ -5,8 +5,8 @@ include '../classes/database.php';
 $db = new database;
 ?>
 
-<h3> Data Mahasiswa </h3>
-<a href="input_mhs.php">Tambah Mahasiswa</a>
+<h3> Data Dosen </h3>
+<a href="input_dsn.php">Tambah Dosen</a>
  <table border="1">
     <tr>
         <th>No</th>
@@ -17,7 +17,7 @@ $db = new database;
     </tr>
     <?php
     $no=1;
-    foreach ($db->tampil_mahasiswa() as $x){
+    foreach ($db->tampil_dosen() as $x){
         echo "<tr>";
         echo "<td>$no</td>";
         echo "<td>$x[nim]</td>";
