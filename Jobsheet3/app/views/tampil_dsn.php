@@ -10,7 +10,7 @@ $db = new database;
  <table border="1">
     <tr>
         <th>No</th>
-        <th>NIM</th>
+        <th>NIDN</th>
         <th>Nama</th>
         <th>Alamat</th>
         <th>Aksi</th>
@@ -20,10 +20,10 @@ $db = new database;
     foreach ($db->tampil_dosen() as $x){
         echo "<tr>";
         echo "<td>$no</td>";
-        echo "<td>$x[nim]</td>";
+        echo "<td>$x[nidn]</td>";
         echo "<td>$x[nama]</td>";
         echo "<td>$x[alamat]</td>";
-        echo "<td><a href='edit_mhs.php?id=$x[id]'>Edit</a> | <a href='proses_mhs.php?id=$x[id]&aksi=hapus'>Hapus</a></td>";
+        echo "<td><a href='edit_dsn.php?id=$x[id]'>Edit</a> | <a href='proses_dsn.php?id=$x[id]&aksi=hapus'>Hapus</a></td>";
         echo "</tr>";
         $no++;
     }
