@@ -1,36 +1,40 @@
 <?php
 include '../classes/database.php';
-$db = new Database  ();
+include '../../public/bootstrap.php';
+$db = new Database();
 ?>
 
-<h3>Edit Data Mahasiswa</h3>
-<form action="proses_mhs.php?aksi=update" method="post">
+<div class="container">
+  <h3>Edit Data Mahasiswa</h3>
+  <form action="proses_mhs.php?aksi=update" method="post">
     <?php
     foreach ($db->edit($_GET['id']) as $d) {
-        ?>
-    <table>
-        <tr>
-            <td>NIM</td>
-            <td>
-                <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
-                <input type="text" name="nim" value="<?php echo $d['nim'] ?>">
-            </td>
-        </tr>
-        <tr>
-            <td>Nama</td>
-            <td><input type="text" name="nama" value="<?php echo $d['nama'] ?>"></td>
-        </tr>
-        <tr>
-            <td>Alamat</td>
-            <td>
-                <textarea name="alamat" colspan="30" rows="5"><?php echo $d['alamat'] ?></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Simpan"></td>
-        </tr>
-    </table>
+    ?>
+      <div class="row">
+        <div class="col-sm-6">
+          <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+          <div class="mb-3">
+            <label for="nim">NIM</label>
+            <input type="text" id="nim" name="nim" value="<?php echo $d['nim'] ?>" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="nama">Nama</label>
+            <input type="text" id="nama" name="nama" value="<?php echo $d['nama'] ?>" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <label for="alamat">Alamat</label>
+            <textarea id="alamat" name="alamat" rows="5" class="form-control"><?php echo $d['alamat'] ?></textarea>
+          </div>
+          <div class="mb-3">
+            <input type="submit" value="Simpan" class="btn btn-primary">
+            <a href="tampil_mhs.php" class="btn btn-secondary">Kembali</a>
+          </div>
+        </div>
+      </div>
     <?php
     }
     ?>
-</form>
+  </form>
+</div>

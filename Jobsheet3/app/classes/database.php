@@ -74,4 +74,5 @@ return $hasil;
     function hapus_dsn($id){
         mysqli_query($this->koneksi, "DELETE FROM dosen WHERE id='$id'");
     }
+    
 }
